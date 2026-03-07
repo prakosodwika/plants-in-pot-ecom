@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c5926",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#161d15",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Verdant Flora Admin</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary/10 rounded-lg p-2">
+<span class="material-symbols-outlined text-primary">potted_plant</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight text-primary">Verdant Flora</h1>
+<p class="text-xs text-slate-500">Admin Console</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Gardener</p>
+<p class="text-xs text-slate-500 truncate">Manager</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-lg">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Top Navigation Bar -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm placeholder:text-slate-400" placeholder="Search orders, plants, or customers..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-background-dark"></span>
+</button>
+<div class="h-6 w-px bg-slate-200 dark:border-slate-800"></div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium">Jan 24, 2024</span>
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex items-end justify-between">
+<div>
+<h2 class="text-2xl font-bold tracking-tight">Overview Dashboard</h2>
+<p class="text-slate-500">Welcome back! Here's what's happening today.</p>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-sm">download</span> Export Report
+                </button>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-green-50 dark:bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12.4%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Total Revenue</p>
+<h3 class="text-2xl font-bold mt-1">$24,560.00</h3>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-blue-50 dark:bg-blue-900/10 rounded-lg">
+<span class="material-symbols-outlined text-blue-600">local_shipping</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+5.2%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Active Orders</p>
+<h3 class="text-2xl font-bold mt-1">1,284</h3>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-orange-50 dark:bg-orange-900/10 rounded-lg">
+<span class="material-symbols-outlined text-orange-600">person_add</span>
+</div>
+<span class="text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-1 rounded-full">+2.1%</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">New Customers</p>
+<h3 class="text-2xl font-bold mt-1">142</h3>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-purple-50 dark:bg-purple-900/10 rounded-lg">
+<span class="material-symbols-outlined text-purple-600">star</span>
+</div>
+<span class="text-xs font-semibold text-slate-500 bg-slate-50 px-2 py-1 rounded-full">Neutral</span>
+</div>
+<p class="text-slate-500 text-sm font-medium">Conversion Rate</p>
+<h3 class="text-2xl font-bold mt-1">4.8%</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Top Selling Plants -->
+<div class="lg:col-span-1 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold">Top Selling Plants</h3>
+<a class="text-sm text-primary font-medium hover:underline" href="#">View All</a>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0" data-alt="Vibrant green Fiddle Leaf Fig plant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAunvA8sDrGF0P8Iilwyx-ZBxm039m5YRooVgXKAB53SxQWe-hU4Zfn7y4jTWOhSpDsFqOA758MoYrHweZmhNb455_gVbsrFCTU7tiJoIxagN8OxZZ6FxgO13RwlEpbk3AmMfZmqoEK-HsMVWKTzXFo_XkMWWw6Ymks9jmLJTOGOmEpnaT3XSl-_9EnBCkBEiVNarPo8D4RUuG1-kaQtJGQmWxywg9VTjOctUQpsXf7S5R9cW4YDWdoA_yzsDhlex1dlwOJ44fyg7k')"></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">Fiddle Leaf Fig</h4>
+<p class="text-xs text-slate-500">124 sold this month</p>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$45.00</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0" data-alt="Lush Snake Plant in a ceramic pot" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAGJdOwXxJNCjiUsqAMywbnvQQ3rVnHZ0Pd06nBrFjlBsWk_P3HcI27RIbHStpG7G0q4uz056q64CYCtXDZ4PepHm-LgqaiNVGBcX06eymBJQWbsWUUsnodSZ6IUcZ__Oy19gAc1JUHE94Z_jKgrDvB1jwOAa1cItdswkzP7EwiiMCmvVaL3TLbqLtP7TTq_lNLfQjuK_B4GQjEdnCnUkbG3epT2KVt13NGhkAG3NTxs3I0nlHsIQRf63asgq0_O5xidKW4j-o-qLc')"></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">Snake Plant</h4>
+<p class="text-xs text-slate-500">98 sold this month</p>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$28.00</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0" data-alt="Large Monstera Deliciosa leaf detail" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaD9D0ngQYrkdkedvANXE1oFxapicf2En1YZfy7C2KvUxFwoTJ7pvkkzz-OkvZo_2A-5e_QPpKx98xomRtA0ViXlUx9xJQa8DET5j0JxsF_fTavV4SqGIpeiN05Om7SMAzX2zQ2Zd5mRs7TdpflIaNCo8Y4SvlpjVZd5OlVJDkFkpvsCTytOOJ3PidwPVTf-eL0myi-Svn2QMpPgCBAsPhUfCXNnAsConBFp1UzGnNAKitwkD7ywHcPzFwZy3OzwUoC9ZY2RQ_rus')"></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">Monstera Deliciosa</h4>
+<p class="text-xs text-slate-500">85 sold this month</p>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$52.00</span>
+</div>
+<div class="p-4 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="w-12 h-12 rounded-lg bg-center bg-cover shrink-0" data-alt="Elegant Peace Lily with white flowers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2D-WCnMu4a0rdG8uv7KFtBvIgCf3u2zL76w5H6QZ_-rhCPvGZYP9Vgzl7VMFRy6YEl4Oj2QjJ-dwi7fRNDp7_FdqKzT54Dn4jqad4tc2NFOia3hia8e-xq8bo52FqkwDtBq4P0oyhc5jACnoUbodzsT_LQDbyDfutq8NOJPwQKPmsXYJ1QPP_1Qd8gyWSSWHd3HNIMtYtCzqWNM30aLwETuIaAfcZvyq0DLUSQ8slfVxtRKlfnvjbDNPSccK9dX7KVNzBv8YsNP8')"></div>
+<div class="flex-1">
+<h4 class="text-sm font-bold">Peace Lily</h4>
+<p class="text-xs text-slate-500">72 sold this month</p>
+</div>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100">$34.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold">Recent Orders</h3>
+<a class="text-sm text-primary font-medium hover:underline" href="#">Manage All</a>
+</div>
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<tr>
+<th class="px-6 py-4 font-semibold">Order ID</th>
+<th class="px-6 py-4 font-semibold">Customer</th>
+<th class="px-6 py-4 font-semibold">Product</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-500">#ORD-7294</td>
+<td class="px-6 py-4 font-semibold">Sarah Jenkins</td>
+<td class="px-6 py-4">Fiddle Leaf Fig</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Delivered</span>
+</td>
+<td class="px-6 py-4 font-bold">$48.50</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-500">#ORD-7295</td>
+<td class="px-6 py-4 font-semibold">Mark Thompson</td>
+<td class="px-6 py-4">Snake Plant x2</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">Shipping</span>
+</td>
+<td class="px-6 py-4 font-bold">$62.00</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-500">#ORD-7296</td>
+<td class="px-6 py-4 font-semibold">Elena Rodriguez</td>
+<td class="px-6 py-4">Monstera Leaf</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">Pending</span>
+</td>
+<td class="px-6 py-4 font-bold">$55.20</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-500">#ORD-7297</td>
+<td class="px-6 py-4 font-semibold">David Wilson</td>
+<td class="px-6 py-4">Peace Lily Mini</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Delivered</span>
+</td>
+<td class="px-6 py-4 font-bold">$22.00</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4 font-medium text-slate-500">#ORD-7298</td>
+<td class="px-6 py-4 font-semibold">Anna Smith</td>
+<td class="px-6 py-4">Aloe Vera Bundle</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">Cancelled</span>
+</td>
+<td class="px-6 py-4 font-bold">$38.99</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

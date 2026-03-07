@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plant Admin - Product Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c5926",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#161d15",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-100 dark:border-slate-800 px-6 py-4">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">potted_plant</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold leading-tight tracking-tight">Plant Admin</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+<div class="text-slate-500 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 px-3 text-sm font-normal" placeholder="Search catalog..." value=""/>
+</div>
+</label>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold transition-colors hover:bg-primary/90">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Add New Plant</span>
+</button>
+<div class="bg-primary/20 aspect-square rounded-full size-10 flex items-center justify-center overflow-hidden border border-primary/10" data-alt="Professional profile headshot of store administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATubOZkztcfn4AcsuE_18ozz6Rd_x1DFKakTbSDi_9BhUgBsy8JDVdzlLJs5eF106U4EHD-4q9lOYJ7wlhHWU3fCV_MNCOQnn1LbKnETvTZj7e15lFvbVSn89ruxL7-6JcTCrPWRzQ6ntvoAtrSn2fOeIzeU8GVoJQnwFX9nUeDq_U6lUBXCIw59d4VbFam0Ih7LwdMAOBaMB34_xuceIaF79OpmH1qkUz18qHT0G4MDjIdpdn-F496UWW8f7gAweS_Nk2AgWqfvA");'>
+</div>
+</div>
+</header>
+<!-- Page Header -->
+<div class="flex flex-wrap justify-between items-end gap-3 p-6">
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl font-black leading-tight tracking-tight">Product Catalog</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal">Manage your plant inventory, pricing, and stock levels.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-base">filter_list</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-base">download</span>
+                            Export
+                        </button>
+</div>
+</div>
+<!-- Filters & Category Navigation -->
+<div class="px-6 pb-2">
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-4">
+<p class="text-sm font-semibold">All Plants</p>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium">Indoor</p>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium">Outdoor</p>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium">Succulents</p>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-4 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<p class="text-sm font-medium">Trees</p>
+<span class="material-symbols-outlined text-lg">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Tab Filter Bar -->
+<div class="px-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2" href="#">
+<p class="text-sm font-bold tracking-wide">Type</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-bold tracking-wide">Size</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-bold tracking-wide">Care Level</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 dark:text-slate-400 pb-3 pt-2 hover:text-slate-700 dark:hover:text-slate-200" href="#">
+<p class="text-sm font-bold tracking-wide">Season</p>
+</a>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-6">
+<!-- Product Card 1 -->
+<div class="group flex flex-col gap-3 pb-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20 overflow-hidden hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-square overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Lush green Monstera Deliciosa plant in a white ceramic pot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgW41brw32IqCsvPwPcXcBaJnrnv81Bpmfc4zRsnA5y7gvwvKLiaW_-rcQXLvQGa0VJBtgqg3VwixcckxelvsK3g7wWiqDoHiOTuZGTxNaDN95FJYm8Ozmd6M9jTexRyT9tOpa24rlCQCe7fhOyiRuzAg0ehu3-FFNXa7zMOSDPrcuVAnksxb-LqtTcbVAmWhhyk-4oHx6mo9uWmUFDp69LJyiX7Eki5neeQ3_II7MYrRBIsJHZtqe8YOkL0u8sJpdlxm_7MuVrbg");'>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
+                                Tropical
+                            </div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex justify-between items-start">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Monstera Deliciosa</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-primary text-base font-bold">$45.00</p>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<p class="text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    In Stock (24)
+                                </p>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Large</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Intermediate Care</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col gap-3 pb-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20 overflow-hidden hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-square overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Snake plant with tall yellow and green variegated leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZys6dVCjV3ESuAyvBd1caqRnrgq0lIsn62DZ_N0SNzBMlgMGKc7GwQP_S2B5wTqt0CKuE_Zus2dgOwe4fvTohkdpBnEkFLe7ZHwK-1i1fu7ODEb6Q_NBlnRdLkPnq2Oo-4ZwasQ7MjlN-bAwFNtgj1VCZABnu8ula23ohkIljzJ_jyG3Y8dF63-mm6pMKHoPPczHqeCB9-CceqisOr3aH41_ovTTzqRhG4ob-7-y8PeyYdbi9Sxg56Q_TCjRQ03VIv4p0NnHOHHY");'>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
+                                Succulent
+                            </div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex justify-between items-start">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Snake Plant</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-primary text-base font-bold">$25.00</p>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<p class="text-amber-600 dark:text-amber-400 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    Low Stock (5)
+                                </p>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Medium</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Easy Care</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col gap-3 pb-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20 overflow-hidden hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-square overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover grayscale-[0.5] opacity-80" data-alt="Fiddle leaf fig tree with large violin shaped leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQcvUgb_OK9xi4ToSF4H3TDAMbY4UdGXpP9eccc-_7d9bsbzKfuNJ-WmXojeWjj1ZyD5bT37y75MOB4EbIYAF9Iu3n2rQKOLCRmKgEoXwW7R43H7g2lUHLjnGXOQfVQF8nsc_n8_5w6sUg48ba-Qq05KGLEPqpCB3Jd1mtE9zjJLWpnhVy84kBF5qwi6Y5EUql7_y4O09YtqZPWJCyqlvBp5Kqh-4kg7YXYpa8lwzVE54aUVrJHKWcOIUqo8_kjkY4kbSpIhoSxv8");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="px-4 py-1.5 bg-black/60 text-white rounded-full text-xs font-bold uppercase tracking-widest">Out of Stock</span>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
+                                Trees
+                            </div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex justify-between items-start">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold opacity-70">Fiddle Leaf Fig</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-primary text-base font-bold opacity-70">$65.00</p>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<p class="text-slate-400 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                    Waitlist Active
+                                </p>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Extra Large</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Expert Care</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col gap-3 pb-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20 overflow-hidden hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-square overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small hanging spider plant in a decorative pot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2eGBNOp58XBvDB3Kh4bz8tFyQZPmSCdk2qkpBj4uTNKQzGP1VWczBXt_JN_pTlklsAPkAio3vUU3JLPV3g6iYruIaDQ757YLD1YQBceCdqywNn_EOMUhLrTqunvo4X3USuULljxWMFH8ryPF9aBJXl6fIhGm9HPhZ3pLTX-bvRQHHYriGRLiBpAEvXIxxb_aXJmfB65FJqyvGndd9zFC9-fY1UvCrnX0YxUZ2lRn3OS7ACAGOzR-bktS0zHAIWvsdtPVesvT8eV4");'>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
+                                Indoor
+                            </div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex justify-between items-start">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Spider Plant</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-primary text-base font-bold">$18.00</p>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<p class="text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    In Stock (42)
+                                </p>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Small</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Beginner</span>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group flex flex-col gap-3 pb-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20 overflow-hidden hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-square overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110" data-alt="Small potted succulent variety pack" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwaCZXuS3Piy-H7Rqz26Q1P6f68QOzFfVOV_CEGphX-RqBsCEhfg4yHxuKPijEhoatl-MRRZGHpCHgTfi8Dq6BpMt63o3yzyLiD0KbgDAAZHCgnkz90mCQJnj-xzwMszBIM6AM8KTVFErCgfdhzwydopk31tGV0iJ2pHQ2a3bYuB0G-Vo1X_M5ZYZwQ-5SePqg_q-GB9UDNaZ28XcI21xTb-c8kUpKfblOGtZ6KwGYHbFjZRFicLmScG9G6rvo3qp0qcGF4pt2QEo");'>
+</div>
+<div class="absolute top-3 left-3 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary shadow-sm">
+                                Succulent
+                            </div>
+</div>
+<div class="px-4 pb-2">
+<div class="flex justify-between items-start">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold">Aloe Vera</h3>
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-primary text-base font-bold">$12.00</p>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<p class="text-emerald-600 dark:text-emerald-400 text-xs font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    In Stock (18)
+                                </p>
+</div>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Small</span>
+<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase">Medicinal</span>
+</div>
+</div>
+</div>
+<!-- Empty Add Card -->
+<div class="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-50/10 dark:bg-slate-800/10 min-h-[350px] cursor-pointer hover:border-primary/50 transition-all hover:bg-slate-50/30">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+<div class="text-center">
+<p class="text-slate-900 dark:text-slate-100 font-bold">New Product</p>
+<p class="text-slate-500 text-sm">Create a new plant listing</p>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-800">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Showing 5 of 124 plants</p>
+<div class="flex gap-2">
+<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-50">2</button>
+<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold hover:bg-slate-50">3</button>
+<button class="size-8 flex items-center justify-center rounded border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

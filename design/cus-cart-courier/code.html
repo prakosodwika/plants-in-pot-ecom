@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c5926",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#161d15",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .radio-custom:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="border-b border-primary/10 bg-white dark:bg-background-dark/50 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">shopping_basket</span>
+</div>
+<span class="font-bold text-xl tracking-tight text-primary">Lumina</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary font-semibold">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-xs">1</span>
+<span class="text-sm">Cart</span>
+</div>
+<div class="w-8 h-px bg-primary/20"></div>
+<div class="flex items-center gap-2 text-primary font-semibold">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-xs">2</span>
+<span class="text-sm">Info</span>
+</div>
+<div class="w-8 h-px bg-primary/20"></div>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs">3</span>
+<span class="text-sm">Shipping</span>
+</div>
+<div class="w-8 h-px bg-slate-200"></div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="flex items-center justify-center w-6 h-6 rounded-full border border-slate-200 text-xs">4</span>
+<span class="text-sm">Payment</span>
+</div>
+</nav>
+<button class="p-2 hover:bg-primary/5 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-600">close</span>
+</button>
+</div>
+</header>
+<main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 md:py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Main Content -->
+<div class="lg:col-span-8">
+<div class="mb-8">
+<div class="flex items-center justify-between mb-2">
+<h1 class="text-3xl font-black text-slate-900 dark:text-slate-100">Checkout Step 3 - Delivery Method</h1>
+<span class="text-primary font-bold text-sm bg-primary/10 px-3 py-1 rounded-full">Step 3 of 4</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400">Choose how you'd like your order to be delivered to your doorstep.</p>
+<!-- Progress Bar -->
+<div class="mt-6 w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%]"></div>
+</div>
+<p class="mt-2 text-xs font-medium text-primary text-right italic">Almost there! Just two steps to go.</p>
+</div>
+<div class="space-y-4">
+<!-- Shipping Option: Express -->
+<label class="relative flex items-center p-5 cursor-pointer rounded-xl border-2 border-primary bg-primary/5 ring-1 ring-primary/20 transition-all hover:bg-primary/10">
+<input checked="" class="radio-custom h-5 w-5 text-primary border-primary focus:ring-primary focus:ring-offset-0 bg-white" name="delivery" type="radio" value="express"/>
+<div class="ml-4 flex-grow flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">rocket_launch</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-slate-900">Express Delivery</span>
+<span class="text-sm text-slate-500">Guaranteed delivery by tomorrow, Oct 24</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-bold text-primary text-lg">$25.00</span>
+<span class="text-[10px] uppercase tracking-wider text-primary font-bold px-2 py-0.5 bg-primary/10 rounded">Fastest</span>
+</div>
+</label>
+<!-- Shipping Option: Standard -->
+<label class="relative flex items-center p-5 cursor-pointer rounded-xl border border-slate-200 bg-white dark:bg-background-dark/30 hover:border-primary/50 transition-all group">
+<input class="radio-custom h-5 w-5 text-primary border-slate-300 focus:ring-primary focus:ring-offset-0 bg-white" name="delivery" type="radio" value="standard"/>
+<div class="ml-4 flex-grow flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-slate-50 rounded-lg group-hover:bg-primary/5">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-3xl">local_shipping</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 dark:text-slate-100">Standard Shipping</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Estimated delivery: 3-5 business days</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-bold text-slate-900 dark:text-slate-100 text-lg">$10.00</span>
+</div>
+</label>
+<!-- Shipping Option: Economy -->
+<label class="relative flex items-center p-5 cursor-pointer rounded-xl border border-slate-200 bg-white dark:bg-background-dark/30 hover:border-primary/50 transition-all group">
+<input class="radio-custom h-5 w-5 text-primary border-slate-300 focus:ring-primary focus:ring-offset-0 bg-white" name="delivery" type="radio" value="economy"/>
+<div class="ml-4 flex-grow flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-slate-50 rounded-lg group-hover:bg-primary/5">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors text-3xl">eco</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 dark:text-slate-100">Economy Saver</span>
+<span class="text-sm text-slate-500 dark:text-slate-400">Estimated delivery: 7-10 business days</span>
+</div>
+</div>
+<div class="text-right">
+<span class="block font-bold text-primary text-lg">FREE</span>
+</div>
+</label>
+</div>
+<div class="mt-10 p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl flex items-start gap-4 border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary">info</span>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm">Eco-friendly Shipping</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">We offset the carbon footprint of every delivery through our partnership with Global Green Initiative. No extra cost to you.</p>
+</div>
+</div>
+</div>
+<!-- Sidebar / Order Summary -->
+<div class="lg:col-span-4">
+<div class="bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sticky top-24 shadow-sm">
+<h2 class="text-xl font-bold mb-6 text-slate-900 dark:text-slate-100">Order Summary</h2>
+<!-- Mini Cart Items -->
+<div class="space-y-4 mb-6">
+<div class="flex gap-4">
+<div class="w-16 h-16 bg-slate-100 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Red sleek athletic sneakers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqR6T7MK31fjDDlsiRCtStGzt_7KGT-tFrIvF43FbLxxCKLZXIQzufiU-bDBbxc3f5wMnM05dvofQ73DBcKb0BRtkmOHsiVA6E2SQi0mJi5y2-b6-t5q5MQ3Rmt1MJhZfdFdjbeNQ9EZy15p1lp-9airVbeBlByfOUFToV0fnUZMCbXvqmKuFunonWZgHc_Zg_Da9Y7ikZOpaPQbIjTkzaYqDvjaqgm8TsxwKcyQ1UZSh48jynykSGyyqt398668RI1Oyi5g4xwUM"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Pro Run Ultra</h4>
+<p class="text-xs text-slate-500">Size: 10 • Red</p>
+<p class="text-sm font-bold mt-1 text-slate-900 dark:text-slate-100">$120.00</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-16 h-16 bg-slate-100 rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern minimalist white watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEfQxHBi8ubH-rfICwGcaRaScisCiu7Styi-TI1Lws2R9L6sYqstCiVjJ7gDmS7ntVaOwLyfYCZOlW85LyU2S-rF1EiZvJx-HLxqb-j0lNXFaO4i2XDHksm1DUBl50gAleL45F69mSAQauH2iiN9k8U-M6ZGWpGGc3fb46wNGIe8IAy6_YdPlQgc506CU7eaLBrXD4FGotI3cJIwhpc-lHa8afVL51K4ENzP-71x9rhsiAN-niL1ko5y4U1tuf8g6TDGPKlizWHhY"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Minimalist Watch</h4>
+<p class="text-xs text-slate-500">One Size • Silver</p>
+<p class="text-sm font-bold mt-1 text-slate-900 dark:text-slate-100">$85.00</p>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-3">
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span class="text-sm">Subtotal</span>
+<span class="text-sm font-medium">$205.00</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span class="text-sm">Shipping (Express)</span>
+<span class="text-sm font-medium">$25.00</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span class="text-sm">Estimated Tax</span>
+<span class="text-sm font-medium">$16.40</span>
+</div>
+<div class="flex justify-between border-t border-slate-100 dark:border-slate-800 pt-3 mt-3">
+<span class="text-lg font-bold text-slate-900 dark:text-slate-100">Total</span>
+<span class="text-xl font-black text-primary">$246.40</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl mt-8 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-primary/20">
+                            Continue to Payment Review
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center justify-center gap-4 opacity-50">
+<span class="material-symbols-outlined text-sm">shield</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Secure Checkout</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 bg-white dark:bg-background-dark/30">
+<div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
+<p>© 2024 Lumina Retail. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

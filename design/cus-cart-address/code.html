@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c5926",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#161d15",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Checkout Step 2 - Shipping Address</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/10 bg-white dark:bg-background-dark px-6 md:px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Checkout</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium flex items-center gap-2" href="#">
+<span class="size-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs">1</span>
+                        Cart
+                    </a>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+<a class="text-primary text-sm font-bold flex items-center gap-2" href="#">
+<span class="size-6 rounded-full bg-primary text-white flex items-center justify-center text-xs">2</span>
+                        Shipping
+                    </a>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+<a class="text-slate-400 dark:text-slate-600 text-sm font-medium flex items-center gap-2" href="#">
+<span class="size-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs">3</span>
+                        Delivery
+                    </a>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+<a class="text-slate-400 dark:text-slate-600 text-sm font-medium flex items-center gap-2" href="#">
+<span class="size-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-xs">4</span>
+                        Review
+                    </a>
+</div>
+</div>
+<div class="flex justify-end">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto w-full px-4 md:px-10 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Shipping Selection -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                            Step 2 of 4
+                        </div>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl md:text-4xl font-extrabold tracking-tight">Shipping Address</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base">Where should we send your order? Select a saved address or add a new one.</p>
+</div>
+<!-- Progress Bar Mobile -->
+<div class="md:hidden w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/2 rounded-full"></div>
+</div>
+<div class="flex flex-col gap-4 mt-4">
+<!-- Address Card 1 -->
+<label class="group relative flex cursor-pointer items-start gap-4 rounded-xl border-2 border-primary bg-primary/5 p-6 transition-all hover:border-primary/50">
+<input checked="" class="mt-1 h-5 w-5 border-2 border-primary bg-transparent text-primary focus:ring-primary focus:ring-offset-2" name="shipping-address" type="radio"/>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="text-slate-900 dark:text-slate-100 font-bold text-lg">John Doe</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-primary text-white">Default</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    123 Maple Street, Springfield, IL 62704<br/>
+                                    United States<br/>
+                                    Phone: +1 (555) 000-1234
+                                </p>
+</div>
+<button class="ml-auto text-primary hover:underline text-sm font-semibold">Edit</button>
+</label>
+<!-- Address Card 2 -->
+<label class="group relative flex cursor-pointer items-start gap-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark/50 p-6 transition-all hover:border-primary/30">
+<input class="mt-1 h-5 w-5 border-2 border-slate-300 dark:border-slate-700 bg-transparent text-primary focus:ring-primary focus:ring-offset-2" name="shipping-address" type="radio"/>
+<div class="flex flex-col gap-1">
+<span class="text-slate-900 dark:text-slate-100 font-bold text-lg">Jane Smith</span>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    456 Business Way, Suite 200, Chicago, IL 60601<br/>
+                                    United States<br/>
+                                    Phone: +1 (555) 999-8888
+                                </p>
+</div>
+<button class="ml-auto text-primary hover:underline text-sm font-semibold">Edit</button>
+</label>
+<!-- Add New Address Button -->
+<button class="mt-2 flex items-center justify-center gap-2 w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 text-slate-500 hover:border-primary hover:text-primary transition-all group">
+<span class="material-symbols-outlined transition-transform group-hover:scale-110">add_circle</span>
+<span class="font-bold">Add a New Shipping Address</span>
+</button>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<button class="flex items-center gap-2 text-slate-500 font-bold hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Back to Cart
+                        </button>
+<button class="hidden lg:flex items-center justify-center rounded-lg h-12 px-8 bg-primary text-white font-bold hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
+                            Continue to Delivery
+                        </button>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 flex flex-col gap-6 rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">Order Summary</h3>
+<div class="flex flex-col gap-4">
+<!-- Items Mini List -->
+<div class="flex items-center gap-4">
+<div class="size-16 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Minimalist white wristwatch on gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_JguCXXrNQZ-ynFOHK8INrd2xz40_uzPcekEVZQKsSI3JwvXhBY2hGNlhiVh0L7PsEerBx6Pb2aV0mYDAqyDGRZ2FZpTiaCtO9Npt2VEsDp4j8_3xtPB9_glCNO-NEhR954y8tcbNKagdJPHf1G3cP1ciAB3MvouJmhNzYm2enHLQ2hK2IE7iJEbx5vFf832OyUcdOi8e9L4am9TL9q42aX8FnK-_pMWglUHiGdx3xsmTSjphwfyomy05oylIJ_qSyUByP9sQ2V8"/>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">Premium Watch</span>
+<span class="text-xs text-slate-500">Qty: 1 • Silver</span>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 mt-1">$249.00</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-16 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Black professional over-ear headphones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3imzN6wayDoHgsrhaaVkQ9QhBjcftTDssxO3_fT9crw19xyjRS3SRW297_vlr4P_cVz2MuTgGQcvHQ75fxVasKIOX1XEyDZBGprF42q8DSxDbFK2lZ8BPtAxl5C6F8naUSxwrkTfQEHrxsUYWxoZfXUbZboeEWTM1pHBeUvdb8OypMQa2p7SwgVFGBx_H8PkPGfPTMynyxwdxVzQf8e2qXJXCOa1BgeSvdioQeXRC3ENxxF3sac1HzczFIHbc3on-FuKliQl6Vt0"/>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 truncate">Wireless Headphones</span>
+<span class="text-xs text-slate-500">Qty: 1 • Black</span>
+<span class="text-sm font-bold text-slate-900 dark:text-slate-100 mt-1">$159.00</span>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-800 pt-4 flex flex-col gap-2">
+<div class="flex justify-between text-slate-500 dark:text-slate-400 text-sm">
+<span>Subtotal</span>
+<span>$408.00</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400 text-sm">
+<span>Shipping</span>
+<span class="text-primary font-medium">Calculated next step</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400 text-sm">
+<span>Tax</span>
+<span>$32.64</span>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-800 pt-4 flex justify-between items-end">
+<span class="text-slate-900 dark:text-slate-100 font-bold">Total</span>
+<div class="flex flex-col items-end">
+<span class="text-2xl font-extrabold text-primary">$440.64</span>
+<span class="text-[10px] text-slate-400 uppercase tracking-widest">USD</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 pt-2">
+<button class="flex w-full items-center justify-center rounded-lg h-12 bg-primary text-white font-bold hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
+                                Continue to Delivery
+                            </button>
+<p class="text-center text-[11px] text-slate-400">Secure encrypted checkout powered by Stripe</p>
+</div>
+<!-- Promo Code -->
+<div class="mt-2">
+<label class="text-xs font-bold text-slate-500 mb-1 block uppercase">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-1 rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-sm focus:ring-primary focus:border-primary" placeholder="Enter code" type="text"/>
+<button class="rounded-lg px-4 py-2 border border-slate-200 dark:border-slate-800 text-sm font-bold hover:bg-slate-50 transition-colors">Apply</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Help -->
+<footer class="mt-auto py-10 border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex gap-8">
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-sm" href="#">Help Center</a>
+</div>
+<div class="flex items-center gap-4 text-slate-300">
+<span class="material-symbols-outlined">shield_lock</span>
+<span class="material-symbols-outlined">verified_user</span>
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

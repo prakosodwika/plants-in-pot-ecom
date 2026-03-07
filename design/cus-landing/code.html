@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c5926",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#161d15",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Verdant Aura | Premium Indoor Plants</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<h2 class="text-xl font-bold tracking-tight text-primary">Verdant Aura</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Shop All</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Care Guides</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-primary/5 rounded-full px-4 py-2 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-primary/40 w-48" placeholder="Search our jungle..." type="text"/>
+</div>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-bold tracking-widest uppercase text-xs">Curated Botanical Collection</span>
+<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-slate-100">
+                                Bring Nature <br/><span class="text-primary">Indoors</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                                Discover our hand-picked collection of premium, rare, and resilient indoor plants designed to transform your living space into a sanctuary.
+                            </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
+                                Shop New Arrivals
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border border-primary/20 bg-white dark:bg-white/5 px-8 py-4 rounded-lg font-bold hover:bg-primary/5 transition-colors">
+                                View Care Guides
+                            </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl -rotate-2"></div>
+<div class="relative aspect-[4/5] bg-center bg-cover rounded-xl shadow-2xl overflow-hidden" data-alt="Luxurious Monstera Deliciosa plant in a minimalist white room" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcPkErbQTi-tq6Os-I99xPKKm320aDIIsYTj-TGyfl7WYIqqexbFfSGzexsXEYyt8p6ocFfRjL5MGEYu-SG5T7p_8oJoIKbTt2aKpVljZ7djSfqMV_rNzaKhQojld9HRXNCMnH1KMIf3sBZnG5ZC1D5N2C2HmZJwUqMWPLt5WcUsNevPaeFvPQEtWibumMhMY9Rktpf-6BtdgER57420vsO5RBoT3aHu-0lXcmMqzejGvB1E-7iZx2NRs_VXGzctIVF93gE-7LFys");'>
+</div>
+</div>
+</div>
+</section>
+<!-- New Arrivals Section -->
+<section class="bg-white dark:bg-slate-900/50 py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-bold tracking-tight">New Arrivals</h2>
+<p class="text-slate-500 mt-2">The latest additions to our greenhouse</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline underline-offset-4" href="#">
+                            View All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl bg-background-light overflow-hidden mb-4">
+<div class="absolute inset-0 bg-center bg-cover group-hover:scale-105 transition-transform duration-500" data-alt="Small Monstera Adansonii in a terracotta pot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0hkG6p94-0BdkHQjrX61DiCq_hGlClgotOjbLnmj3caqLH4-MbL5qEvky3pRjFo0_ppA4Qp7lTUxZ8rty3PUjBf1BAXlM0EX4U3dH1ENKIskDFNFl8WJU2wNWMFNBq6hRCt2uPxRoy1ywe-n6EUJQIH1TB33gVoAN9TP4OoG8suWMk0K0qtABVzbdzupaYfqvHWipUZ6nfIj4EIn6Xz0wSdT4EOvkrZUOPu_87yQIigABp8j76LRftSeKYaq3kA5QhfZm9SmeiBU");'></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-bold text-lg">Monstera Adansonii</h3>
+<p class="text-slate-500">$45.00</p>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl bg-background-light overflow-hidden mb-4">
+<div class="absolute inset-0 bg-center bg-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant Olive Tree in a stone pot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD24V8uzMDhmuxYd8tdroytmSGt9xWkDT9vo0GFCDbPGZG9NUGBQaxYwiIPvUawqxRvWVirEkyIRQv70D48Xh9C-QMDJTLFz0tngF1Tcq1x6vw9wO3Tp9WtlMqnGs3wLmm4WXPbklHUWJ3o4RF7LOM2DHrdccg8FZCmV09jmRMIYjBWLiQlZBi1OKALRTAoDK5UXku7sXwiQe8G0bFYyx4_vEb1JV45-DpoHPUIAao19iNszqLeLxcg1b6fz9O8oStm_f25HtlqRFg");'></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-bold text-lg">Olive Tree</h3>
+<p class="text-slate-500">$120.00</p>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl bg-background-light overflow-hidden mb-4">
+<div class="absolute inset-0 bg-center bg-cover group-hover:scale-105 transition-transform duration-500" data-alt="Large Bird of Paradise plant with vibrant green leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRDOL0sb2T_g6rf264GQogQWWDOPhzozv_gi5zuWYTPIuAnouhJngZkzy8fpzgsce-z3MkxIeCScQMeqh9cjUFc3wBrq3xDdL9uPjVQFnnIlIkD--dy2ML42TruDhDCA0OePte5r6g6gvnuZ9FWAp4-IZGrpn-55YaaFoflujNVK9E0tfHjq1fCDLP88TyIP1dTcmE21mmcvK05wl1qdmqHor4bFhLKbnHXx3Jh_6RdoiNsnmNg6ADHHjvqMqSa_w3aiIZ7BvHs2g");'></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-bold text-lg">Bird of Paradise</h3>
+<p class="text-slate-500">$85.00</p>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-xl bg-background-light overflow-hidden mb-4">
+<div class="absolute inset-0 bg-center bg-cover group-hover:scale-105 transition-transform duration-500" data-alt="Alocasia Polly plant with dark leaves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfyvMXO3nha3db4v-0faNqkax_lBicvTLbpD1nY7UoBy88QhFsxRevKMaX2TH5TRNGow-jW7FS-WX1igFoRQAB-Rqfwavx0RmpZ-395DQZihCYc-M3PPXKrvN9Pq2XY1lYg35ekTtXQrAtmQhvcJdoaYcCfYRBwZgkloSIPrmBp2m25ulGXSAKk_Ab1poNn5ZbNQ_zxHQfja-dKwoV2PxZOEC2EsuNGprEGq19CpafHKtFfQorYKFWnFV0cIqhHL-CY5to2bL1JOQ");'></div>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+</button>
+</div>
+<h3 class="font-bold text-lg">Alocasia Polly</h3>
+<p class="text-slate-500">$38.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Best Sellers Section -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-1/2 order-2 md:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square rounded-xl bg-cover bg-center" data-alt="Fiddle Leaf Fig close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvThJENSVIRjgc9Cq5tn0vY5eW_k-vX51upwPpN2Z2PeKiPZgKdrin8ug_8m9RKuGhTqwXfzFCS9S-HAX-a5BbX5vV0leqIo5cefA0pnaKFpoDLOutNKWJRnUn_Kyd5PVr4D1WzkU-eGy7r5jJDru15nldq1u5DbZf15t9L8vOa3nuv0ntfQr7sm1bOTS4leIXovwvL3v98Chm2Ovr85u_MbL30hQNrg-7m5qotQAh1EPePIT4UgG9HrvEsWReswOMlSINaEhLkr4");'></div>
+<div class="aspect-square rounded-xl bg-cover bg-center mt-8" data-alt="Potted succulent collection" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCi2A0uxVGdmEayjg5q3OK9BQih9HopqhNOrcOzV9DyLdZXC8qLiZnqY1gVgy-aX3yLn7fvUyn8JTwpVi4APMBtIq33AaLD4pzKArzHmiPJCSakChoCKcU6E_1H5Yn7vLZhgvMuw9iT8gLlsIagyqjjPfS75K2QtrXYPtgW4WL6Xq9vdWLdKogVZeLPfiej4PTyGMoppmFaFI1Tt2Y4DEvhMKgCKlU9khPZQ7wKYdUp5GfKNfyaLobeoKIVPsBL1LpCgHS6lDiQNdI");'></div>
+</div>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2">
+<h2 class="text-4xl font-bold tracking-tight mb-6">Our Best Sellers</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                            Loved by our community, these plants are perfect for both seasoned collectors and new plant parents. Each one comes with a lifetime care guide.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-4 rounded-xl border border-primary/10 hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-2xl mt-1">verified</span>
+<div>
+<h4 class="font-bold">The Fiddle Leaf Fig</h4>
+<p class="text-sm text-slate-500">The iconic statement piece for any bright room.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl border border-primary/10 hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-2xl mt-1">favorite</span>
+<div>
+<h4 class="font-bold">Snake Plant 'Laurentii'</h4>
+<p class="text-sm text-slate-500">Unstoppable and incredibly easy to care for.</p>
+</div>
+</div>
+</div>
+<button class="mt-10 text-primary font-bold flex items-center gap-2 border-b-2 border-primary pb-1 hover:opacity-80 transition-opacity">
+                            Shop All Best Sellers <span class="material-symbols-outlined">north_east</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Minimalist Footer -->
+<footer class="bg-primary/5 border-t border-primary/10 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl">eco</span>
+<h2 class="text-lg font-bold tracking-tight text-primary">Verdant Aura</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                            Curating nature's best for your home. We source our plants from sustainable local nurseries and deliver them with love.
+                        </p>
+</div>
+<div>
+<h4 class="font-bold mb-6">Shop</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Indoor Plants</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pots &amp; Planters</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Care Tools</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Learn</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Care Guides</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Plant Hospital</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Workshops</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Newsletter</h4>
+<p class="text-sm text-slate-500 mb-4">Join our community for plant tips and exclusive offers.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-white dark:bg-background-dark border-primary/20 rounded-lg px-4 py-2 text-sm focus:ring-primary focus:border-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-primary/10 text-xs text-slate-400 gap-4">
+<p>© 2024 Verdant Aura. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Shipping Policy</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">group</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">share</span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
