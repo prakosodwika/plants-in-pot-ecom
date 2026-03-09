@@ -2,31 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { User, MapPin, Shield, Sprout, ReceiptText, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useStore } from "@/lib/store";
-
-const menuItems = [
-  { href: "/profile", label: "Personal Info", icon: User },
-  { href: "/profile/addresses", label: "Addresses", icon: MapPin },
-  { href: "/profile/security", label: "Security", icon: Shield },
-  { href: "/profile/collection", label: "My Collection", icon: Sprout },
-  { href: "/profile/orders", label: "Orders", icon: ReceiptText },
-];
+// import { useStore } from "@/lib/store";
+import { MenuProfile, menuProfileItems } from "@/lib/data";
+import { Description, Title } from "./headers";
 
 export function ProfileSidebar() {
   const pathname = usePathname();
-  const { user } = useStore();
+  // const { user } = useStore();
 
   return (
     <aside className="w-full md:w-64 flex flex-col gap-2">
-      <div className="mb-6 px-3">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Settings</h3>
-        <p className="text-sm text-slate-500">Manage your botanical journey</p>
+      <div className="mb-4 space-y-1">
+        <Title title="Settings" />
+        <Description description="Manage your botanical journey" />
       </div>
       
       <nav className="flex flex-col gap-1">
-        {menuItems.map((item) => (
+        {menuProfileItems.map((item: MenuProfile) => (
           <Link
             key={item.href}
             href={item.href}
@@ -43,7 +37,7 @@ export function ProfileSidebar() {
         ))}
       </nav>
 
-      <hr className="my-4 border-primary/10" />
+      <hr className="my-2 border-primary/10" />
       
       <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors w-full text-left font-medium">
         <LogOut className="w-5 h-5" />

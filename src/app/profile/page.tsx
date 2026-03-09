@@ -1,11 +1,12 @@
 "use client";
 
 import { useStore } from "@/lib/store";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Edit2, Shield, User, Mail, Phone, Leaf } from "lucide-react";
+import { Shield, User, Mail, Phone, Leaf, ShieldCheck } from "lucide-react";
 import { useState } from "react";
+import { Description, Title } from "@/components/profile/headers";
+import { ProfileAction } from "@/components/profile/actions";
 
 export default function ProfilePage() {
   const { user, updateUser } = useStore();
@@ -23,37 +24,12 @@ export default function ProfilePage() {
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-primary/10 rounded-2xl p-8 shadow-sm">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Personal Information</h2>
-          <p className="text-slate-500">Update your basic profile details here.</p>
+      <div className="mb-8 space-y-1">
+        <Title title="Personal Information" />
+        <div className="flex justify-between">
+          <Description description="Update your basic profile details here." />
+          <ProfileAction isEditing={isEditing} setIsEditing={setIsEditing} handleSave={handleSave} /> 
         </div>
-        {!isEditing ? (
-          <Button
-            onClick={() => setIsEditing(true)}
-            variant="outline"
-            className="flex items-center gap-2 text-primary border-primary/20 hover:bg-primary/5 rounded-xl font-bold"
-          >
-            <Edit2 className="w-4 h-4" />
-            Edit Profile
-          </Button>
-        ) : (
-          <div className="flex gap-2">
-            <Button
-              onClick={() => setIsEditing(false)}
-              variant="ghost"
-              className="rounded-xl font-bold"
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={handleSave}
-              className="bg-primary text-white hover:opacity-90 rounded-xl font-bold"
-            >
-              Save Changes
-            </Button>
-          </div>
-        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -120,7 +96,7 @@ export default function ProfilePage() {
 
       <div className="mt-12 flex items-center gap-6 p-6 bg-primary/5 rounded-2xl border-l-4 border-primary">
         <div className="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-          <Shield className="w-8 h-8" />
+          <ShieldCheck className="w-8 h-8 " />
         </div>
         <div>
           <h4 className="font-bold text-primary dark:text-slate-100 text-lg">Account Verified</h4>

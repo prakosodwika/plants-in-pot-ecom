@@ -1,3 +1,5 @@
+import { LucideIcon, MapPin, ReceiptText, Shield, Sprout, User } from "lucide-react";
+
 export interface Product {
   id: string;
   name: string;
@@ -108,3 +110,17 @@ export const couriers: Courier[] = [
     deliveryTime: "Scheduled Delivery",
   },
 ]
+
+export interface MenuProfile {
+  href: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+export const menuProfileItems: MenuProfile[] = [
+  { href: "/profile", label: "Personal Info", icon: User },
+  { href: "/profile/addresses", label: "Addresses", icon: MapPin },
+  { href: "/profile/security", label: "Security", icon: Shield },
+  { href: "/profile/collection", label: "My Collection", icon: Sprout },
+  { href: "/profile/orders", label: "Orders", icon: ReceiptText },
+];

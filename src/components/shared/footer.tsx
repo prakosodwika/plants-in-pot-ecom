@@ -40,7 +40,7 @@ export function Footer() {
             <p className="text-sm text-slate-500 mb-4">Join our community for plant tips and exclusive offers.</p>
             <div className="flex gap-1">
               <Input
-                className="flex-1 bg-white border-primary/20 rounded-lg px-4 h-10 text-sm focus:ring-primary focus:border-primary"
+                className="flex-1 bg-white border-2 border-primary/20 rounded-lg px-4 h-10 text-sm focus:ring-primary focus:border-primary"
                 placeholder="Email address"
                 type="email"
               />
@@ -51,19 +51,16 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-primary/10 text-xs text-slate-400 gap-4">
-          <p>© 2024 Verdant Aura. All rights reserved.</p>
+          <p>© 2026 Prakoso Dwika. All rights reserved.</p>
           <div className="flex gap-6">
             <Link className="hover:text-primary" href="#">Privacy Policy</Link>
             <Link className="hover:text-primary" href="#">Terms of Service</Link>
             <Link className="hover:text-primary" href="#">Shipping Policy</Link>
           </div>
           <div className="flex gap-4">
-            {/* <span className="material-symbols-outlined cursor-pointer hover:text-primary text-sm">public</span>
-            <span className="material-symbols-outlined cursor-pointer hover:text-primary text-sm">group</span>
-            <span className="material-symbols-outlined cursor-pointer hover:text-primary text-sm">share</span> */}
-            <Earth className="!w-5 !h-5"/>
-            <Users className="!w-5 !h-5"/>
-            <Share2 className="!w-5 !h-5"/>
+            <Earth className="!w-5 !h-5 hover:text-primary"/>
+            <Users className="!w-5 !h-5 hover:text-primary"/>
+            <Share2 className="!w-5 !h-5 hover:text-primary"/>
           </div>
         </div>
       </div>
