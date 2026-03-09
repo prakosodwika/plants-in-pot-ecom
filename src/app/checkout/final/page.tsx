@@ -29,10 +29,10 @@ export default function CheckoutFinalPage() {
 
   if (!isMounted) return null;
 
-  if (cart.length === 0) {
-    router.push("/cart");
-    return null;
-  }
+  // if (cart.length === 0) {
+  //   router.push("/cart");
+  //   return null;
+  // }
 
   if (!address || !courier) {
     router.push("/checkout/review");

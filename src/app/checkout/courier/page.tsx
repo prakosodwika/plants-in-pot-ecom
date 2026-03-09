@@ -4,7 +4,7 @@ import { useStore } from "@/lib/store";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useSyncExternalStore } from "react";
 import { ArrowRight, ChevronLeft } from "lucide-react";
 import { SummaryCardCheckoutCourier } from "@/components/shared/summary";
@@ -24,8 +24,7 @@ export default function CheckoutCourierPage() {
   if (!isMounted) return null;
 
   if (cart.length === 0) {
-    router.push("/cart");
-    return null;
+    redirect("/cart");
   }
 
   if (!address) {

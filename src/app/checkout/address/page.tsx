@@ -6,7 +6,7 @@ import { Footer } from "@/components/shared/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
 import { ArrowRight, ChevronLeft } from "lucide-react";
 import { SummaryCardCheckoutAddress } from "@/components/shared/summary";
@@ -36,8 +36,7 @@ export default function CheckoutAddressPage() {
   if (!isMounted) return null;
 
   if (cart.length === 0) {
-    router.push("/cart");
-    return null;
+    redirect("/cart");
   }
 
   const handleSubmit = (e: React.FormEvent) => {

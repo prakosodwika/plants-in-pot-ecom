@@ -4,7 +4,7 @@ import { useStore } from "@/lib/store";
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useSyncExternalStore } from "react";
 import { ChevronLeft } from "lucide-react";
 import { ProductCardListItem } from "@/components/shared/product";
@@ -14,7 +14,6 @@ import { CheckoutStep } from "@/lib/data";
 
 export default function CheckoutReviewPage() {
   const { cart } = useStore();
-  const router = useRouter();
   const isMounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -26,8 +25,7 @@ export default function CheckoutReviewPage() {
   if (!isMounted) return null;
 
   if (cart.length === 0) {
-    router.push("/cart");
-    return null;
+    redirect("/cart");
   }
 
   return (
