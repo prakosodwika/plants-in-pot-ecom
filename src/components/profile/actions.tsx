@@ -1,5 +1,6 @@
-import { Edit2 } from "lucide-react"
+import { Edit2, Plus } from "lucide-react"
 import { Button } from "../ui/button"
+import { AddressDialog, AddressDialogProps } from "./dialogs"
 
 interface ProfileActionProps {
   isEditing: boolean
@@ -37,5 +38,40 @@ export function ProfileAction({
         Save Changes
       </Button>
     </div>
+  )
+}
+
+type AddressActionProps = {
+  handleOpenAdd: () => void;
+} & AddressDialogProps;
+
+export function AddressAction({ 
+  handleOpenAdd,
+  isOpen,
+  setIsOpen,
+  editingId,
+  formData,
+  setFormData,
+  handleSubmit,
+}: AddressActionProps) {
+  return (
+    <>
+      <Button
+          onClick={handleOpenAdd}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-all "
+        >
+          <Plus className="w-4 h-4" />
+          Add New Address
+        </Button>
+
+        <AddressDialog 
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          editingId={editingId}
+          formData={formData}
+          setFormData={setFormData}
+          handleSubmit={handleSubmit}
+        />
+    </>
   )
 }

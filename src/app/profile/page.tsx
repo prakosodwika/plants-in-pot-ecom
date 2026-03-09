@@ -3,7 +3,7 @@
 import { useStore } from "@/lib/store";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Shield, User, Mail, Phone, Leaf, ShieldCheck } from "lucide-react";
+import { User, Mail, Phone, Leaf, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Description, Title } from "@/components/profile/headers";
 import { ProfileAction } from "@/components/profile/actions";
