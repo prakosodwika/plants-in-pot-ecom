@@ -1,6 +1,6 @@
 import { Edit2, Plus } from "lucide-react"
 import { Button } from "../ui/button"
-import { AddressDialog, AddressDialogProps } from "./dialogs"
+import { AddressDialog, AddressDialogProps } from "../shared/dialogs"
 
 interface ProfileActionProps {
   isEditing: boolean

@@ -3,7 +3,9 @@
 import { Description, Title } from "@/components/profile/headers";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Package, Truck, CheckCircle2, XCircle } from "lucide-react";
+import { Package, Truck, CheckCircle2, XCircle } from "lucide-react";
+import { useState } from "react";
+import { OrderDetailDialog } from "@/components/shared/dialogs";
 
 const statusIcons = {
   Processing: Package,
@@ -21,6 +23,9 @@ const statusColors = {
 
 export default function OrdersPage() {
   const { orders } = useStore();
+  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+
+  const selectedOrder = orders.find((o) => o.id === selectedOrderId) ?? null;
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-primary/10 rounded-2xl p-8 shadow-sm">
@@ -63,9 +68,12 @@ export default function OrdersPage() {
                         ${order.total.toFixed(2)}
                       </td>
                       <td className="px-6 py-5 text-right">
-                        <button className="text-sm font-bold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1">
-                          View Details <ChevronRight className="w-4 h-4" />
-                        </button>
+                        <OrderDetailDialog
+                          setSelectedOrderId={setSelectedOrderId}
+                          selectedOrder={selectedOrder}
+                          order={order}
+                          statusColors={statusColors[order.status]}
+                        />
                       </td>
                     </tr>
                   );
