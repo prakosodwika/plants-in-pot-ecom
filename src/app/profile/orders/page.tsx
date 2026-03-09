@@ -1,5 +1,6 @@
 "use client";
 
+import { Description, Title } from "@/components/profile/headers";
 import { useStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { ChevronRight, Package, Truck, CheckCircle2, XCircle } from "lucide-react";
@@ -23,11 +24,10 @@ export default function OrdersPage() {
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-primary/10 rounded-2xl p-8 shadow-sm">
-      <div className="mb-10">
-        <h2 className="text-3xl font-black text-slate-900 dark:text-slate-50 tracking-tight">My Orders</h2>
-        <p className="text-slate-500 dark:text-slate-400 mt-2">Track and manage your plant purchases and delivery history.</p>
+      <div className="mb-8 space-y-1">
+        <Title title="My Orders" />
+        <Description description="Track and manage your plant purchases and delivery history." />
       </div>
-
       <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
@@ -47,7 +47,7 @@ export default function OrdersPage() {
                   return (
                     <tr key={order.id} className="hover:bg-slate-50/50 dark:hover:bg-primary/5 transition-colors">
                       <td className="px-6 py-5">
-                        <span className="text-sm font-bold text-slate-900 dark:text-slate-100">#{order.id}</span>
+                        <span className="text-sm font-bold text-primary dark:text-slate-100">#{order.id}</span>
                       </td>
                       <td className="px-6 py-5 text-sm text-slate-600 dark:text-slate-400">{order.date}</td>
                       <td className="px-6 py-5">
@@ -59,7 +59,7 @@ export default function OrdersPage() {
                           {order.status}
                         </span>
                       </td>
-                      <td className="px-6 py-5 text-sm font-black text-slate-900 dark:text-slate-100">
+                      <td className="px-6 py-5 text-sm font-black text-primary dark:text-slate-100">
                         ${order.total.toFixed(2)}
                       </td>
                       <td className="px-6 py-5 text-right">
