@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AdminSidebar } from "@/components/shared/admin-sidebar";
+import { HeaderAdmin } from "@/components/shared/header";
 
 export default function AdminLayout({
   children,
@@ -26,6 +27,7 @@ export default function AdminLayout({
     <div className="flex h-screen overflow-hidden bg-background">
       <AdminSidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
+        <HeaderAdmin />
         {children}
       </div>
     </div>

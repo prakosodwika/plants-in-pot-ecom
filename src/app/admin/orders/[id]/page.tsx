@@ -48,13 +48,6 @@ export default function AdminOrderDetail({ params }: { params: Promise<{ id: str
 
   return (
     <main className="flex-1 flex flex-col overflow-y-auto">
-      <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center shrink-0">
-        <Link href="/admin/orders" className="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
-          <ArrowLeft />
-          <span className="text-sm font-medium">Back to Orders</span>
-        </Link>
-      </header>
-
       <div className="p-8 max-w-5xl mx-auto w-full space-y-8 text-left">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="space-y-1">
@@ -65,6 +58,7 @@ export default function AdminOrderDetail({ params }: { params: Promise<{ id: str
           </div>
           
           <div className="flex items-center gap-3">
+
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Button variant="outline" className="flex items-center gap-2 border-primary/20 bg-primary/5 text-primary font-bold">
@@ -88,6 +82,13 @@ export default function AdminOrderDetail({ params }: { params: Promise<{ id: str
             
             <Button className="bg-primary text-white font-bold px-6 shadow-lg shadow-primary/20">
               Save Changes
+            </Button>
+            <Button className="flex items-center gap-2 border-primary/20 bg-primary/5 text-primary font-bold" 
+              onClick={() => router.back()}
+              variant="outline"  
+            >
+              <ArrowLeft className="!w-5 !h-5" strokeWidth={2}/>
+              Back
             </Button>
           </div>
         </div>

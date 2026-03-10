@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import Image from "next/image";
-import { Banknote, Bell, Calendar, Download, MapPin, Star, UserRound } from "lucide-react";
+import { Banknote, Bell, Calendar, Download, MapPin, Search, Star, UserRound } from "lucide-react";
 
 export default function AdminDashboard() {
   const stats = [
@@ -28,32 +28,11 @@ export default function AdminDashboard() {
 
   return (
     <main className="flex-1 flex flex-col overflow-y-auto">
-      {/* Top Nav */}
-      <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between shrink-0">
-        <div className="flex-1 max-w-xl">
-          <div className="relative">
-            <Input className="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg focus-visible:ring-2 focus-visible:ring-primary/20 text-sm placeholder:text-slate-400" placeholder="Search orders, plants, or customers..." />
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium">Jan 24, 2024</span>
-              <Calendar className="text-slate-400 !w-4 !h-4" />
-              {/* <span className="material-symbols-outlined text-slate-400">calendar_today</span> */}
-          </div>
-          <Button variant="ghost" size="icon" className="relative">
-            {/* <span className="material-symbols-outlined">notifications</span> */}
-            <Bell />
-            {/* <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span> */}
-          </Button>
-        </div>
-      </header>
-
       <div className="p-8 space-y-8">
         <div className="flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-slate-900">Overview Dashboard</h2>
-            <p className="text-slate-500">Welcome back! Here's what's happening today.</p>
+            <p className="text-slate-500">Welcome back! Heres whats happening today.</p>
           </div>
           <Button className="bg-primary text-white flex items-center gap-2">
             <Download className="w-4 h-4" /> Export Report

@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
-// import { useStore } from "@/lib/store";
 import { MenuProfile, menuProfileItems } from "@/lib/data";
 import { Description, Title } from "./headers";
+import { Button } from "../ui/button";
 
 export function ProfileSidebar() {
   const pathname = usePathname();
-  // const { user } = useStore();
+  const router = useRouter();
+  
 
   return (
     <aside className="w-full md:w-64 flex flex-col gap-2">
@@ -39,10 +40,12 @@ export function ProfileSidebar() {
 
       <hr className="my-2 border-primary/10" />
       
-      <button className="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors w-full text-left font-medium">
+      <Button variant="ghost" className="flex items-center gap-3 px-4 py-3 h-12 rounded-xl text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors w-full text-left font-medium"
+        onClick={() => router.push("/login")}
+      >
         <LogOut className="w-5 h-5" />
         <span>Sign Out</span>
-      </button>
+      </Button>
     </aside>
   );
 }
