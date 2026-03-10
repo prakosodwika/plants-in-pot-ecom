@@ -160,8 +160,8 @@ export function OrderDetailDialog({
               {selectedOrder?.items && selectedOrder.items.length > 0 ? (
                 selectedOrder.items.map((item) => (
                   <div key={item.id} className="flex items-center gap-4 bg-slate-50 dark:bg-primary/5 p-4 rounded-xl border border-primary/5">
-                    <div className="w-16 h-16 rounded-lg bg-white p-1 border border-primary/10 overflow-hidden flex-shrink-0">
-                      <Image src={item.image} alt={item.name} className="w-full h-full object-cover rounded-md" />
+                    <div className="w-16 h-16 rounded-lg bg-white p-1 border border-primary/10 overflow-hidden flex-shrink-0 relative">
+                      <Image src={item.image} alt={item.name} fill className="object-cover rounded-md" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h5 className="font-bold text-slate-900 dark:text-slate-100 truncate">{item.name}</h5>
@@ -190,12 +190,12 @@ export function OrderDetailDialog({
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="text-sm">
-                  <p className="font-bold text-base text-primary dark:text-slate-100">{selectedOrder?.address.fullName}</p>
+                  <p className="font-bold text-base text-primary dark:text-slate-100">{selectedOrder?.address?.fullName || "No name provided"}</p>
                   <p className="text-slate-500 mt-1 leading-relaxed">
-                    {selectedOrder?.address.street}<br />
-                    {selectedOrder?.address.city}, {selectedOrder?.address.state} {selectedOrder?.address.zipCode}
+                    {selectedOrder?.address?.street || "No street provided"}<br />
+                    {selectedOrder?.address?.city || ""}{selectedOrder?.address?.state ? `, ${selectedOrder.address.state}` : ""} {selectedOrder?.address?.zipCode || ""}
                   </p>
-                  <p className="text-primary mt-2 text-xs font-bold">{selectedOrder?.address.phone}</p>
+                  <p className="text-primary mt-2 text-xs font-bold">{selectedOrder?.address?.phone || ""}</p>
                 </div>
               </div>
             </div>

@@ -151,9 +151,79 @@ export interface Order {
   total: number;
   createdAt: string;
   shippingAddress: string;
+  address?: {
+    fullName: string;
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    phone: string;
+  };
 }
 
 export const orders: Order[] = [
+  {
+    id: "ORD-9901",
+    customerName: "John Doe",
+    customerEmail: "user@example.com",
+    items: [
+      { id: "item-101", productId: "1", name: "Monstera Adansonii", price: 45.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC0hkG6p94-0BdkHQjrX61DiCq_hGlClgotOjbLnmj3caqLH4-MbL5qEvky3pRjFo0_ppA4Qp7lTUxZ8rty3PUjBf1BAXlM0EX4U3dH1ENKIskDFNFl8WJU2wNWMFNBq6hRCt2uPxRoy1ywe-n6EUJQIH1TB33gVoAN9TP4OoG8suWMk0K0qtABVzbdzupaYfqvHWipUZ6nfIj4EIn6Xz0wSdT4EOvkrZUOPu_87yQIigABp8j76LRftSeKYaq3kA5QhfZm9SmeiBU" },
+      { id: "item-102", productId: "4", name: "Alocasia Polly", price: 38.0, quantity: 2, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfyvMXO3nha3db4v-0faNqkax_lBicvTLbpD1nY7UoBy88QhFsxRevKMaX2TH5TRNGow-jW7FS-WX1igFoRQAB-Rqfwavx0RmpZ-395DQZihCYc-M3PPXKrvN9Pq2XY1lYg35ekTtXQrAtmQhvcJdoaYcCfYRBwZgkloSIPrmBp2m25ulGXSAKk_Ab1poNn5ZbNQ_zxHQfja-dKwoV2PxZOEC2EsuNGprEGq19CpafHKtFfQorYKFWnFV0cIqhHL-CY5to2bL1JOQ" },
+    ],
+    status: OrderStatus.Delivered,
+    total: 121.0,
+    createdAt: "2024-02-15T09:15:00Z",
+    shippingAddress: "789 Maple Ave, Spring City, SC 54321",
+    address: {
+      fullName: "John Doe",
+      street: "789 Maple Ave",
+      city: "Spring City",
+      state: "SC",
+      zipCode: "54321",
+      phone: "+1 (555) 987-6543",
+    },
+  },
+  {
+    id: "ORD-9902",
+    customerName: "John Doe",
+    customerEmail: "user@example.com",
+    items: [
+      { id: "item-201", productId: "5", name: "Fiddle Leaf Fig", price: 150.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvThJENSVIRjgc9Cq5tn0vY5eW_k-vX51upwPpN2Z2PeKiPZgKdrin8ug_8m9RKuGhTqwXfzFCS9S-HAX-a5BbX5vV0leqIo5cefA0pnaKFpoDLOutNKWJRnUn_Kyd5PVr4D1WzkU-eGy7r5jJDru15nldq1u5DbZf15t9L8vOa3nuv0ntfQr7sm1bOTS4leIXovwvL3v98Chm2Ovr85u_MbL30hQNrg-7m5qotQAh1EPePIT4UgG9HrvEsWReswOMlSINaEhLkr4" },
+    ],
+    status: OrderStatus.Shipping,
+    total: 150.0,
+    createdAt: "2024-03-01T14:20:00Z",
+    shippingAddress: "789 Maple Ave, Spring City, SC 54321",
+    address: {
+      fullName: "John Doe",
+      street: "789 Maple Ave",
+      city: "Spring City",
+      state: "SC",
+      zipCode: "54321",
+      phone: "+1 (555) 987-6543",
+    },
+  },
+  {
+    id: "ORD-9903",
+    customerName: "John Doe",
+    customerEmail: "user@example.com",
+    items: [
+      { id: "item-301", productId: "2", name: "Olive Tree", price: 120.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD24V8uzMDhmuxYd8tdroytmSGt9xWkDT9vo0GFCDbPGZG9NUGBQaxYwiIPvUawqxRvWVirEkyIRQv70D48Xh9C-QMDJTLFz0tngF1Tcq1x6vw9wO3Tp9WtlMqnGs3wLmm4WXPbklHUWJ3o4RF7LOM2DHrdccg8FZCmV09jmRMIYjBWLiQlZBi1OKALRTAoDK5UXku7sXwiQe8G0bFYyx4_vEb1JV45-DpoHPUIAao19iNszqLeLxcg1b6fz9O8oStm_f25HtlqRFg" },
+      { id: "item-302", productId: "6", name: "Snake Plant Laurentii", price: 55.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCi2A0uxVGdmEayjg5q3OK9BQih9HopqhNOrcOzV9DyLdZXC8qLiZnqY1gVgy-aX3yLn7fvUyn8JTwpVi4APMBtIq33AaLD4pzKArzHmiPJCSakChoCKcU6E_1H5Yn7vLZhgvMuw9iT8gLlsIagyqjjPfS75K2QtrXYPtgW4WL6Xq9vdWLdKogVZeLPfiej4PTyGMoppmFaFI1Tt2Y4DEvhMKgCKlU9khPZQ7wKYdUp5GfKNfyaLobeoKIVPsBL1LpCgHS6lDiQNdI" },
+    ],
+    status: OrderStatus.Pending,
+    total: 175.0,
+    createdAt: "2024-03-08T11:00:00Z",
+    shippingAddress: "789 Maple Ave, Spring City, SC 54321",
+    address: {
+      fullName: "John Doe",
+      street: "789 Maple Ave",
+      city: "Spring City",
+      state: "SC",
+      zipCode: "54321",
+      phone: "+1 (555) 987-6543",
+    },
+  },
   {
     id: "ORD-7294",
     customerName: "Sarah Jenkins",
@@ -165,6 +235,14 @@ export const orders: Order[] = [
     total: 150.0,
     createdAt: "2024-01-24T10:00:00Z",
     shippingAddress: "123 Garden St, Green City, GC 12345",
+    address: {
+      fullName: "Sarah Jenkins",
+      street: "123 Garden St",
+      city: "Green City",
+      state: "GC",
+      zipCode: "12345",
+      phone: "+1 (555) 111-2222",
+    },
   },
   {
     id: "ORD-7295",
@@ -177,6 +255,14 @@ export const orders: Order[] = [
     total: 110.0,
     createdAt: "2024-01-24T11:30:00Z",
     shippingAddress: "456 Oak Ave, Leafy Suburb, LS 67890",
+    address: {
+      fullName: "Mark Thompson",
+      street: "456 Oak Ave",
+      city: "Leafy Suburb",
+      state: "LS",
+      zipCode: "67890",
+      phone: "+1 (555) 333-4444",
+    },
   },
   {
     id: "ORD-7296",
@@ -189,6 +275,69 @@ export const orders: Order[] = [
     total: 85.0,
     createdAt: "2024-01-24T14:45:00Z",
     shippingAddress: "789 Pine Rd, Forest Hills, FH 54321",
+    address: {
+      fullName: "Elena Rodriguez",
+      street: "789 Pine Rd",
+      city: "Forest Hills",
+      state: "FH",
+      zipCode: "54321",
+      phone: "+1 (555) 555-6666",
+    },
+  },
+];
+
+export interface Customer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  totalOrders: number;
+  totalSpent: number;
+  status: "Active" | "Inactive";
+  joinedDate: string;
+  avatar?: string;
+}
+
+export const customers: Customer[] = [
+  {
+    id: "CUS-001",
+    name: "John Doe",
+    email: "user@example.com",
+    phone: "+1 (555) 987-6543",
+    totalOrders: 3,
+    totalSpent: 446.0,
+    status: "Active",
+    joinedDate: "2024-01-10",
+  },
+  {
+    id: "CUS-002",
+    name: "Sarah Jenkins",
+    email: "sarah.j@example.com",
+    phone: "+1 (555) 111-2222",
+    totalOrders: 1,
+    totalSpent: 150.0,
+    status: "Active",
+    joinedDate: "2024-01-15",
+  },
+  {
+    id: "CUS-003",
+    name: "Mark Thompson",
+    email: "mark.t@example.com",
+    phone: "+1 (555) 333-4444",
+    totalOrders: 1,
+    totalSpent: 110.0,
+    status: "Inactive",
+    joinedDate: "2023-11-20",
+  },
+  {
+    id: "CUS-004",
+    name: "Elena Rodriguez",
+    email: "elena.r@example.com",
+    phone: "+1 (555) 555-6666",
+    totalOrders: 1,
+    totalSpent: 85.0,
+    status: "Active",
+    joinedDate: "2024-02-01",
   },
 ];
 
