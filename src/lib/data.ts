@@ -286,6 +286,61 @@ export const orders: Order[] = [
   },
 ];
 
+export interface Customer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  totalOrders: number;
+  totalSpent: number;
+  status: "Active" | "Inactive";
+  joinedDate: string;
+  avatar?: string;
+}
+
+export const customers: Customer[] = [
+  {
+    id: "CUS-001",
+    name: "John Doe",
+    email: "user@example.com",
+    phone: "+1 (555) 987-6543",
+    totalOrders: 3,
+    totalSpent: 446.0,
+    status: "Active",
+    joinedDate: "2024-01-10",
+  },
+  {
+    id: "CUS-002",
+    name: "Sarah Jenkins",
+    email: "sarah.j@example.com",
+    phone: "+1 (555) 111-2222",
+    totalOrders: 1,
+    totalSpent: 150.0,
+    status: "Active",
+    joinedDate: "2024-01-15",
+  },
+  {
+    id: "CUS-003",
+    name: "Mark Thompson",
+    email: "mark.t@example.com",
+    phone: "+1 (555) 333-4444",
+    totalOrders: 1,
+    totalSpent: 110.0,
+    status: "Inactive",
+    joinedDate: "2023-11-20",
+  },
+  {
+    id: "CUS-004",
+    name: "Elena Rodriguez",
+    email: "elena.r@example.com",
+    phone: "+1 (555) 555-6666",
+    totalOrders: 1,
+    totalSpent: 85.0,
+    status: "Active",
+    joinedDate: "2024-02-01",
+  },
+];
+
 export interface Guide {
   title: string;
   icon: LucideIcon;

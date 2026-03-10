@@ -7,9 +7,9 @@ import { LayoutDashboard, LeafyGreen, LogOut, Package, PersonStanding, Trees, Us
 
 const menuItems = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "#", label: "Inventory", icon: Trees},
+  { href: "/admin/products", label: "Products", icon: Trees},
   { href: "/admin/orders", label: "Orders", icon: Package },
-  { href: "#", label: "Customers", icon: Users },
+  { href: "/admin/customers", label: "Customers", icon: Users },
 ];
 
 export function AdminSidebar() {
