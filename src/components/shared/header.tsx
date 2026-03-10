@@ -1,17 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { useSyncExternalStore } from "react";
+import { useSyncExternalStore, useState } from "react";
 import { Bell, Heart, LeafyGreen, Search, ShoppingBag, UserRound } from "lucide-react";
 import { TitleSection } from "./title";
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
   const cart = useStore((state) => state.cart);
   const wishlist = useStore((state) => state.wishlist);
   const isMounted = useSyncExternalStore(
@@ -53,14 +55,22 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <div className="hidden lg:flex items-center bg-primary/5 rounded-full px-4 border border-primary/10">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              router.push(`/shop?search=${encodeURIComponent(searchQuery)}`);
+            }}
+            className="hidden lg:flex items-center bg-primary/5 rounded-full px-4 border border-primary/10"
+          >
             <Search className="w-4 h-4 text-primary/40" strokeWidth={3}/>
             <Input
               className="bg-transparent border-none focus-visible:ring-0 text-sm font-medium placeholder:text-primary/40 w-48 h-10"
               placeholder="Search our jungle..."
               type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
-          </div>
+          </form>
           <Link href="/wishlist">
             <Button variant="ghost" size="icon" className="relative p-5 hover:bg-primary/10 rounded-full transition-colors">
               <Heart className="!w-5 !h-5" />

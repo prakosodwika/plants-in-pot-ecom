@@ -2,25 +2,36 @@
 
 import { ProductCard } from "@/components/shared/product";
 import { products } from "@/lib/data";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { TitleSection } from "@/components/shared/title";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function ShopPage() {
+function ShopContent() {
+    const searchParams = useSearchParams();
+    const searchQuery = searchParams.get("search")?.toLowerCase() || "";
     const [activeCategory, setActiveCategory] = useState("All");
-    const categories = ["All", ...Array.from(new Set(products.map((p) => p.category)))];
+    
+    const categories = useMemo(() => ["All", ...Array.from(new Set(products.map((p) => p.category)))], []);
 
-    const filteredProducts = activeCategory === "All"
-        ? products
-        : products.filter(p => p.category === activeCategory);
+    const filteredProducts = useMemo(() => {
+        return products.filter(p => {
+            const matchesCategory = activeCategory === "All" || p.category === activeCategory;
+            const matchesSearch = searchQuery === "" || p.name.toLowerCase().includes(searchQuery);
+            return matchesCategory && matchesSearch;
+        });
+    }, [activeCategory, searchQuery]);
 
     return (
         <main className="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
             <div className="flex flex-col gap-4 mb-12">
-                <TitleSection title="The Collection" />
+                <TitleSection title={searchQuery ? `Search results for "${searchQuery}"` : "The Collection"} />
                 <p className="text-muted-foreground text-lg max-w-2xl">
-                    Our current greenhouse selection, curated for every home and every skill level.
-                    From easy-to-care succulents to rare botanical specimens.
+                    {searchQuery 
+                        ? `Found ${filteredProducts.length} results matching your search.`
+                        : "Our current greenhouse selection, curated for every home and every skill level. From easy-to-care succulents to rare botanical specimens."
+                    }
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -48,9 +59,17 @@ export default function ShopPage() {
 
             {filteredProducts.length === 0 && (
                 <div className="text-center py-20 text-slate-500">
-                    No plants found in this category. Check back soon!
+                    No plants found {searchQuery ? `matching "${searchQuery}"` : "in this category"}. Check back soon!
                 </div>
             )}
         </main>
+    );
+}
+
+export default function ShopPage() {
+    return (
+        <Suspense fallback={<div className="flex-grow max-w-7xl mx-auto px-6 py-12 w-full text-center">Loading shop...</div>}>
+            <ShopContent />
+        </Suspense>
     );
 }
