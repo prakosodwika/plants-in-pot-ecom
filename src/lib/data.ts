@@ -1,4 +1,4 @@
-import { LucideIcon, MapPin, ReceiptText, Shield, Sprout, User } from "lucide-react";
+import { Droplets, LucideIcon, MapPin, ReceiptText, Shield, Sprout, Sun, ThermometerSun, User, Wind } from "lucide-react";
 
 export interface Product {
   id: string;
@@ -191,3 +191,32 @@ export const orders: Order[] = [
     shippingAddress: "789 Pine Rd, Forest Hills, FH 54321",
   },
 ];
+
+export interface Guide {
+  title: string;
+  icon: LucideIcon;
+  content: string;
+}
+
+export const guides: Guide[] = [
+    {
+      title: "Watering 101",
+      content: "Most houseplants prefer to dry out slightly between waterings. Stick your finger an inch into the soil; if it's dry, it's time to water.",
+      icon: Droplets,
+    },
+    {
+      title: "Lighting Guide",
+      content: "Bright, indirect light is the gold standard for most indoor plants. Avoid harsh direct sun which can scorch leaves.",
+      icon: Sun
+    },
+    {
+      title: "Humidity & Air",
+      content: "Tropical plants love humidity. Mist them regularly or use a pebble tray to keep them happy in dry indoor environments.",
+      icon: Wind
+    },
+    {
+      title: "Temperature",
+      content: "Keep your plants away from cold drafts and heating vents. Most plants thrive in temperatures between 65°F and 75°F (18°C - 24°C).",
+      icon: ThermometerSun
+    }
+]

@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { orders, OrderStatus } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
-import { Download, Funnel, SearchX } from "lucide-react";
+import { Download, Funnel } from "lucide-react";
 
 export default function AdminOrderList() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,26 +23,6 @@ export default function AdminOrderList() {
 
   return (
     <main className="flex-1 flex flex-col overflow-y-auto">
-      <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-10 px-8 flex items-center justify-between shrink-0">
-        <div className="flex-1 max-w-xl">
-          <div className="relative">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-            <Input
-              className="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg focus-visible:ring-2 focus-visible:ring-primary/20 text-sm placeholder:text-slate-400"
-              placeholder="Search orders by ID or customer name..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium">Jan 24, 2024</span>
-            <span className="material-symbols-outlined text-slate-400">calendar_today</span>
-          </div>
-        </div>
-      </header>
-
       <div className="p-8 space-y-8">
         <div className="flex items-end justify-between">
           <div>
