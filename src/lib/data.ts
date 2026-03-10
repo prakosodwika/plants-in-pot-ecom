@@ -124,3 +124,70 @@ export const menuProfileItems: MenuProfile[] = [
   { href: "/profile/collection", label: "My Collection", icon: Sprout },
   { href: "/profile/orders", label: "Orders", icon: ReceiptText },
 ];
+
+export enum OrderStatus {
+  Pending = "Pending",
+  Processing = "Processing",
+  Shipping = "Shipping",
+  Delivered = "Delivered",
+  Cancelled = "Cancelled",
+}
+
+export interface OrderItem {
+  id: string;
+  productId: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
+
+export interface Order {
+  id: string;
+  customerName: string;
+  customerEmail: string;
+  items: OrderItem[];
+  status: OrderStatus;
+  total: number;
+  createdAt: string;
+  shippingAddress: string;
+}
+
+export const orders: Order[] = [
+  {
+    id: "ORD-7294",
+    customerName: "Sarah Jenkins",
+    customerEmail: "sarah.j@example.com",
+    items: [
+      { id: "item-1", productId: "5", name: "Fiddle Leaf Fig", price: 150.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvThJENSVIRjgc9Cq5tn0vY5eW_k-vX51upwPpN2Z2PeKiPZgKdrin8ug_8m9RKuGhTqwXfzFCS9S-HAX-a5BbX5vV0leqIo5cefA0pnaKFpoDLOutNKWJRnUn_Kyd5PVr4D1WzkU-eGy7r5jJDru15nldq1u5DbZf15t9L8vOa3nuv0ntfQr7sm1bOTS4leIXovwvL3v98Chm2Ovr85u_MbL30hQNrg-7m5qotQAh1EPePIT4UgG9HrvEsWReswOMlSINaEhLkr4" },
+    ],
+    status: OrderStatus.Delivered,
+    total: 150.0,
+    createdAt: "2024-01-24T10:00:00Z",
+    shippingAddress: "123 Garden St, Green City, GC 12345",
+  },
+  {
+    id: "ORD-7295",
+    customerName: "Mark Thompson",
+    customerEmail: "mark.t@example.com",
+    items: [
+      { id: "item-2", productId: "6", name: "Snake Plant Laurentii", price: 55.0, quantity: 2, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCi2A0uxVGdmEayjg5q3OK9BQih9HopqhNOrcOzV9DyLdZXC8qLiZnqY1gVgy-aX3yLn7fvUyn8JTwpVi4APMBtIq33AaLD4pzKArzHmiPJCSakChoCKcU6E_1H5Yn7vLZhgvMuw9iT8gLlsIagyqjjPfS75K2QtrXYPtgW4WL6Xq9vdWLdKogVZeLPfiej4PTyGMoppmFaFI1Tt2Y4DEvhMKgCKlU9khPZQ7wKYdUp5GfKNfyaLobeoKIVPsBL1LpCgHS6lDiQNdI" },
+    ],
+    status: OrderStatus.Shipping,
+    total: 110.0,
+    createdAt: "2024-01-24T11:30:00Z",
+    shippingAddress: "456 Oak Ave, Leafy Suburb, LS 67890",
+  },
+  {
+    id: "ORD-7296",
+    customerName: "Elena Rodriguez",
+    customerEmail: "elena.r@example.com",
+    items: [
+      { id: "item-3", productId: "3", name: "Bird of Paradise", price: 85.0, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRDOL0sb2T_g6rf264GQogQWWDOPhzozv_gi5zuWYTPIuAnouhJngZkzy8fpzgsce-z3MkxIeCScQMeqh9cjUFc3wBrq3xDdL9uPjVQFnnIlIkD--dy2ML42TruDhDCA0OePte5r6g6gvnuZ9FWAp4-IZGrpn-55YaaFoflujNVK9E0tfHjq1fCDLP88TyIP1dTcmE21mmcvK05wl1qdmqHor4bFhLKbnHXx3Jh_6RdoiNsnmNg6ADHHjvqMqSa_w3aiIZ7BvHs2g" },
+    ],
+    status: OrderStatus.Pending,
+    total: 85.0,
+    createdAt: "2024-01-24T14:45:00Z",
+    shippingAddress: "789 Pine Rd, Forest Hills, FH 54321",
+  },
+];
